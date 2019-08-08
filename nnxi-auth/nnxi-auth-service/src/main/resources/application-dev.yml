@@ -34,7 +34,6 @@ logging:
   level:
     com.baomidou.mybatisplus.samples.quickstart: debug
 
-
 dubbo:
   registry:
     address: zookeeper://172.16.100.41:2181

@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: nnxi-auth-provider
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url:  jdbc:mysql://106.52.162.92:3306/auth_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC    #mysql8
@@ -27,3 +29,20 @@ mybatis-plus:
       #逻辑删除配置
       logic-not-delete-value: 1 #删除前
       logic-delete-value: 0  #删除后
+
+logging:
+  level:
+    com.baomidou.mybatisplus.samples.quickstart: debug
+
+
+dubbo:
+  registry:
+    address: zookeeper://172.16.100.41:2181
+    group: nnxi-auth
+    version: 0.1.0
+    timeout: 12000
+  application:
+    name: nnxi-auth-provider
+
+server:
+  port: 8098
