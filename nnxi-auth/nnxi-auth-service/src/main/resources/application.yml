@@ -9,7 +9,7 @@ spring:
   application:
     name: nnxi-auth-provider
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url:  jdbc:mysql://106.52.162.92:3306/auth_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC    #mysql8
     username: root
     password: nnx13726338256
@@ -44,7 +44,7 @@ logging:
 
 dubbo:
   registry:
-    address: zookeeper://172.16.100.41:2181
+    address: zookeeper://106.52.162.92:2181
     group: nnxi-auth
     version: 0.1.0
     timeout: 12000

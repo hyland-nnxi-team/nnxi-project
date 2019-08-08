@@ -15,6 +15,14 @@
     <name>nnxi-auth</name>
     <description>Demo project for Spring Boot</description>
 
+    <repositories>
+        <!--阿里云仓库 -->
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -45,7 +53,13 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
-
+            <!-- Srping Boot2 Web Test -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring-boot.version}</version>
+                <scope>test</scope>
+            </dependency>
             <!-- devtools 热加载 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -70,7 +84,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <!-- Aapche Dubbo  -->
             <dependency>
                 <groupId>org.apache.dubbo</groupId>
@@ -106,6 +119,7 @@
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
+
                 <version>${zookeeper.version}</version>
             </dependency>
 
