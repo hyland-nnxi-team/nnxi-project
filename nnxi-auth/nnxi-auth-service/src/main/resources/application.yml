@@ -23,6 +23,10 @@ spring:
       validation-query: select '1' from dual
       pool-prepared-statements: true
       max-open-prepared-statements: 20
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+
 #    filters: stat,wall,log4j
 #mybatis-plus:
 #  mapper-locations: classpath*:mapper/*.xml
