@@ -1,5 +1,7 @@
 package com.nnxi.web;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.nnxi.model.User;
 import com.nnxi.service.IUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -26,12 +28,34 @@ public class UserController {
     @Reference
     public IUserService userService;
 
-    @PostMapping
-    @ApiOperation(value = "用户测试接口")
-    public String queryCurrUser() {
-        List<Map<String, Object>> maps = userService.listMaps();
-        return "查询成功";
+    @PostMapping("/page")
+    @ApiOperation(value = "分页查询接口")
+    public List<User> page(@RequestBody(required = true) IPage<User> page) {
+        IPage<User> result = userService.page(page);
+        List<User> records = result.getRecords();
+        return records;
     }
 
+    @PostMapping
+    @ApiOperation(value = "插入接口")
+    public boolean save(@RequestBody(required = true) User model) {
+        boolean save = userService.save(model);
+        return save;
+    }
+
+    @PutMapping
+    @ApiOperation(value = "更新接口")
+    public boolean update(@RequestBody(required = true) User model) {
+        boolean update = userService.updateById(model);
+        return update;
+    }
+
+
+    @DeleteMapping
+    @ApiOperation(value = "删除接口")
+    public boolean delete(@RequestParam(required = true) Integer model) {
+        boolean update = userService.removeById(model);
+        return update;
+    }
 
 }

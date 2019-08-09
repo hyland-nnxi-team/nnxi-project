@@ -8,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication(scanBasePackages = {"com.nnxi"})
-@MapperScan("com.nnxi.mapper")
 @DubboComponentScan(basePackages = "com.nnxi.service.impl")
 public class ServiceStartApplication {
 

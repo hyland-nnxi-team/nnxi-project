@@ -8,6 +8,6 @@ dubbo:
   consumer:
     check: false
   registry:
-    address: zookeeper://172.16.100.41:2181
+    address: zookeeper://106.52.162.92:2181
   application:
     name: nnxi-auth-consumer
