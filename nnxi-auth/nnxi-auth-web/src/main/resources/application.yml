@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 30
+
+dubbo:
+  consumer:
+    check: false
+  registry:
+    address: zookeeper://172.16.100.41:2181
+  application:
+    name: nnxi-auth-consumer
