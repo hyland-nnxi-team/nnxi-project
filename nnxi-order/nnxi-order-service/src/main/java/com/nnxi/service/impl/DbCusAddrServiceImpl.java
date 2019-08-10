@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nnxi.mapper.DbCusAddrMapper;
 import com.nnxi.model.DbCusAddr;
-import com.nnxi.service.IDbCategoryService;
 import com.nnxi.service.IDbCusAddrService;
 
 /**
@@ -18,7 +17,7 @@ import com.nnxi.service.IDbCusAddrService;
  * @author ming
  * @since 2019-08-08
  */
-@Service(interfaceClass = IDbCategoryService.class)
+@Service(interfaceClass = IDbCusAddrService.class)
 public class DbCusAddrServiceImpl extends ServiceImpl<DbCusAddrMapper, DbCusAddr> implements IDbCusAddrService {
 	@Autowired
 	private DbCusAddrMapper cusAddr;
