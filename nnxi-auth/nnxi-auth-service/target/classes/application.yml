@@ -38,8 +38,6 @@ logging:
 
 
 dubbo:
-  provider:
-    timeout: 10000
   registry:
     address: zookeeper://106.52.162.92:2181
   application:
