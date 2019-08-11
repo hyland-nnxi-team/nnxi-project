@@ -1,10 +1,7 @@
 package com.nnxi.web;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.nnxi.common.query.QueryGenerator;
 import com.nnxi.model.User;
 import com.nnxi.service.IUserService;
 import com.nnxi.web.util.Result;

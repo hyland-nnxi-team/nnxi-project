@@ -4,8 +4,6 @@ server:
     max-threads: 1000
     min-spare-threads: 30
 
-
-
 spring:
   application:
     name: nnxi-auth-provider
