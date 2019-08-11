@@ -27,9 +27,14 @@ spring:
       max-open-prepared-statements: 20
 
 mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
   mapper-locations: classpath*:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
+
 
 logging:
   level:
@@ -38,6 +43,8 @@ logging:
 
 
 dubbo:
+  provider:
+    timeout: 5000
   registry:
     address: zookeeper://106.52.162.92:2181
   application:

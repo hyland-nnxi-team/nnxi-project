@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * 
- * @author ming
+ * @author hyland
  *
  */
 @SpringBootApplication(scanBasePackages = {"com.nnxi"})

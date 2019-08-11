@@ -1,4 +1,4 @@
-package com.nnxi.core;
+package com.nnxi.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,12 +40,15 @@ public class SwaggerConfig {
     }
 
     private ApiInfo getApiInfo() {
-        return new ApiInfoBuilder()
-                .title("API接口文档")
-                .description("swagger2 demo api")
-                .termsOfServiceUrl("http://localhost/swagger-ui.html")
-                .version("1.0")
-                .contact(new Contact("Kiana", "http://localhost/swagger-ui.html", ""))
-                .build();
+//        return new ApiInfoBuilder()
+//                .title("API接口文档")
+//                .description("swagger2 demo api")
+//                .termsOfServiceUrl("http://localhost/swagger-ui.html")
+//                .version("1.0")
+//                .contact(new Contact("Kiana", "http://localhost/swagger-ui.html", ""))
+//                .build();
+
+        return new ApiInfoBuilder().title("API接口文档").description("swagger2 demo api")
+                .version("2.0").build();
     }
 }
