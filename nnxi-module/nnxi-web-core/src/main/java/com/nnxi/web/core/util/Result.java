@@ -1,4 +1,4 @@
-package com.nnxi.web.util;
+package com.nnxi.web.core.util;
 
 import java.io.Serializable;
 
