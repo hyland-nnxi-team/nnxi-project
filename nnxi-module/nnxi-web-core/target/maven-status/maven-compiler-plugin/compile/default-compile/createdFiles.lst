@@ -1,0 +1,3 @@
+com\nnxi\web\core\util\Result.class
+com\nnxi\web\core\config\SwaggerConfig.class
+com\nnxi\web\core\config\WebMvcConfiguration.class

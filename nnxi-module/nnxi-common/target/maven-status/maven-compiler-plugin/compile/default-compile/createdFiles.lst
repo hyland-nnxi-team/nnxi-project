@@ -1,0 +1,10 @@
+com\nnxi\common\query\QueryRuleEnum.class
+com\nnxi\common\util\oConvertUtils.class
+com\nnxi\common\constant\CommonConstant.class
+com\nnxi\common\constant\CacheConstant.class
+com\nnxi\common\constant\DataBaseConstant.class
+com\nnxi\common\query\QueryCondition.class
+com\nnxi\common\constant\CommonSendStatus.class
+com\nnxi\common\query\QueryGenerator$1.class
+com\nnxi\common\query\QueryGenerator.class
+com\nnxi\common\util\SqlInjectionUtil.class
