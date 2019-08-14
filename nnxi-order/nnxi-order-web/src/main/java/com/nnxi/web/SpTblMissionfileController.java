@@ -2,6 +2,8 @@ package com.nnxi.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.nnxi.model.SpTblMission;
 import com.nnxi.model.SpTblMissionfile;
 import com.nnxi.service.ISpTblMissionfileService;
+import com.nnxi.web.core.util.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,9 +31,15 @@ public class SpTblMissionfileController {
 	  public ISpTblMissionfileService sqTblMissionFile;
 	@PostMapping("querySpTblMissionfile")
     @ApiOperation(value = "查询插入任务接口")
-    public List<SpTblMissionfile> querySpTblMissionfile(@RequestBody(required = true) SpTblMissionfile model) {
-		QueryWrapper queryWrapper=new QueryWrapper();
-        return sqTblMissionFile.list(queryWrapper);
+    public Result<IPage<SpTblMissionfile>> querySpTblMissionfile(@RequestBody(required = false) SpTblMissionfile model,
+			@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, HttpServletRequest req) {
+		Result<IPage<SpTblMissionfile>> result = new Result<IPage<SpTblMissionfile>>();
+		Page<SpTblMissionfile> page = new Page<SpTblMissionfile>(pageNo, pageSize);
+		IPage<SpTblMissionfile> pageList = sqTblMissionFile.page(page);
+		result.setSuccess(true);
+		result.setResult(pageList);
+		return result;
     } 
 	  
 	@PostMapping("saveSpTblMissionfile")

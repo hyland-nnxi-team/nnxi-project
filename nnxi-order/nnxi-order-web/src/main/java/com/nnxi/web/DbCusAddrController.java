@@ -1,6 +1,6 @@
 package com.nnxi.web;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.nnxi.model.DbCusAddr;
-import com.nnxi.model.DbServer;
 import com.nnxi.service.IDbCusAddrService;
+import com.nnxi.web.core.util.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,11 +26,17 @@ public class DbCusAddrController {
   @Reference
   public IDbCusAddrService cusAddr;
   @PostMapping("queryDbCusAddr")
-  @ApiOperation(value = "查询用户地址接口")
-  public List<DbCusAddr> DbDbCusAddr(@RequestBody(required = true) DbCusAddr model) {
-		QueryWrapper queryWrapper=new QueryWrapper();
-      return cusAddr.list(queryWrapper);
-  }  
+	@ApiOperation(value = "查询用户地址接口")
+	public Result<IPage<DbCusAddr>> DbDbCusAddr(@RequestBody(required = false) DbCusAddr model,
+			@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, HttpServletRequest req) {
+		Result<IPage<DbCusAddr>> result = new Result<IPage<DbCusAddr>>();
+		Page<DbCusAddr> page = new Page<DbCusAddr>(pageNo, pageSize);
+		IPage<DbCusAddr> pageList = cusAddr.page(page);
+		result.setSuccess(true);
+		result.setResult(pageList);
+		return result;
+	}
   
 @PostMapping("saveDbCusAddr")
 @ApiOperation(value = "插入用户地址接口")

@@ -2,6 +2,8 @@ package com.nnxi.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.nnxi.model.DbCusAddr;
 import com.nnxi.model.DbServer;
 import com.nnxi.model.SpTblMission;
 import com.nnxi.service.IDbServerService;
+import com.nnxi.web.core.util.Result;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -27,10 +33,16 @@ public class DbServerController {
 	  
 	  @PostMapping("queryDbServer")
 	    @ApiOperation(value = "查询服务项目接口")
-	    public List<DbServer> DbServer(@RequestBody(required = true) DbServer model) {
-			QueryWrapper queryWrapper=new QueryWrapper();
-	        return server.list(queryWrapper);
-	    }  
+	    public Result<IPage<DbServer>> DbServer(@RequestBody(required = false) DbServer model,
+				@RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+				@RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, HttpServletRequest req) {
+			Result<IPage<DbServer>> result = new Result<IPage<DbServer>>();
+			Page<DbServer> page = new Page<DbServer>(pageNo, pageSize);
+			IPage<DbServer> pageList = server.page(page);
+			result.setSuccess(true);
+			result.setResult(pageList);
+			return result;
+		}
 	    
 	  
 	@PostMapping("saveDbServer")
