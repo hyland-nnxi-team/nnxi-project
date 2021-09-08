@@ -35,7 +35,7 @@
         <java.version>1.8</java.version>
         <commons-beanutils.version>1.9.3</commons-beanutils.version>
         <spring-boot.version>2.1.4.RELEASE</spring-boot.version>
-        <dubbo.version>2.7.1</dubbo.version>
+        <dubbo.version>2.7.13</dubbo.version>
         <zookeeper.version>3.4.14</zookeeper.version>
         <curator.version>4.0.1</curator.version>
         <nnxi-service-core.version>0.0.1</nnxi-service-core.version>
